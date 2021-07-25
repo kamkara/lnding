@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'connected/index'
   resources :resultats
   get '/motivation', to:'admin#index' , as: :admin
   get '/serie_d', to:'admin#serie_d' , as: :serie_d

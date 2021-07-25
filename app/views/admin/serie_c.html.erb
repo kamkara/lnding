@@ -1,5 +1,5 @@
 
-<% @title="Statistiques Globale -- Motiv'Action 2021" %>
+<% @title="Statistiques série A1" %>
 <!-- component -->
 <div>
     
@@ -13,8 +13,10 @@
             <%= render "admin/shared/header" %>
             <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-200">
                 <div class="container mx-auto px-6 py-8">
-                    <h3 class="text-gray-700 text-3xl font-medium">Dashboard </h3>
-                        Effectif <span class="text-sm leading-5 text-gray-500"><%= @resultats.count %> au Total</span>
+                    <h3 class="text-gray-700 text-3xl font-medium">Dashboard</h3>
+                     Effectif <span class="text-sm leading-5 text-gray-500"> <%= @resultats_C_S.count %>/<%= @resultats_C.count %> au Total</span>
+                    
+    
                     <div class="mt-4">
                         <div class="flex flex-wrap -mx-6">
                             <div class="w-full px-6 sm:w-1/2 xl:w-1/4">
@@ -44,8 +46,8 @@
                                     </div>
     
                                     <div class="mx-5">
-                                        <h4 class="text-2xl font-semibold text-gray-700"><%= @resultats_D_S.count %>/ <%= @resultats_D.count %></h4>
-                                        <div class="text-gray-500">Admin en D</div>
+                                        <h4 class="text-2xl font-semibold text-gray-700"><%= @resultats_C_S.count %></h4>
+                                        <div class="text-gray-500">Admin en C</div>
                                     </div>
                                 </div>
                             </div>
@@ -59,8 +61,8 @@
                                     </div>
     
                                     <div class="mx-5">
-                                        <h4 class="text-2xl font-semibold text-gray-700"><%= @resultats_A1_S.count %>/<%= @resultats_A1.count %></h4>
-                                        <div class="text-gray-500">Admin en A1</div>
+                                        <h4 class="text-2xl font-semibold text-gray-700"><%= @resultats_CH.count %></h4>
+                                        <div class="text-gray-500">Admin en C (H)</div>
                                     </div>
                                 </div>
                             </div>
@@ -79,8 +81,8 @@
                                     </div>
     
                                     <div class="mx-5">
-                                        <h4 class="text-2xl font-semibold text-gray-700"><%= @resultats_A2_S.count %>/<%= @resultats_A2.count %></h4>
-                                        <div class="text-gray-500">Admin en A2</div>
+                                        <h4 class="text-2xl font-semibold text-gray-700"><%= @resultats_CF.count %></h4>
+                                        <div class="text-gray-500">Admin en C (F)</div>
                                     </div>
                                 </div>
                             </div>
@@ -103,7 +105,7 @@
                                     </div>
     
                                     <div class="mx-5">
-                                        <h4 class="text-2xl font-semibold text-gray-700"><%= @resultats_C_S.count %>/<%= @resultats_C.count %></h4>
+                                        <h4 class="text-2xl font-semibold text-gray-700"><%= @resultats_C.count %></h4>
                                         <div class="text-gray-500">Admin en C</div>
                                     </div>
                                 </div>
@@ -141,7 +143,7 @@
                                     </thead>
     
                                     <tbody class="bg-white">
-                                        <% @resultats.each do |resultat| %>
+                                        <% @resultats_C.each do |resultat_c| %>
 
                                         <tr>
                                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
@@ -151,27 +153,27 @@
                                                     </div>
     
                                                     <div class="ml-4">
-                                                        <div class="text-sm leading-5 font-medium text-gray-900"><%= resultat.username %>
+                                                        <div class="text-sm leading-5 font-medium text-gray-900"><%= resultat_c.username %>
                                                         </div>
-                                                        <% if resultat.genre == "Homme" %>
-                                                            <div class="text-sm leading-5 text-gray-500"><%= resultat.ville %> (F)</div>
+                                                        <% if resultat_c.genre == "Homme" %>
+                                                            <div class="text-sm leading-5 text-gray-500"><%= resultat_c.ville %> (F)</div>
                                                          <% else %>
-                                                            <div class="text-sm leading-5 text-gray-500"><%= resultat.ville %> (H)</div>
+                                                            <div class="text-sm leading-5 text-gray-500"><%= resultat_c.ville %> (H)</div>
                                                         <% end %>
                                                     </div>
                                                 </div>
                                             </td>
     
                                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                                                <div class="text-sm leading-5 text-gray-900"> en série <%= resultat.serie %></div>                                               
-                                                <div class="text-sm leading-5 text-gray-500"><%= resultat.age %> ans</div>
+                                                <div class="text-sm leading-5 text-gray-900"> en série <%= resultat_c.serie %></div>                                               
+                                                <div class="text-sm leading-5 text-gray-500"><%= resultat_c.age %> ans</div>
                                             </td>
     
-                                            <% if resultat.status == "Success" %>
+                                            <% if resultat_c.status == "Succes" %>
                                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                                 <span
                                                     class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
-                                                    bg-green-100 text-green-800">Adminis</span>
+                                                    bg-green-100 text-green-800">Admin2s</span>
                                             </td>
                                             <% else %>
                                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
@@ -186,12 +188,12 @@
     
                                             <td
                                                 class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
-                                                <%= resultat.contact %>
+                                                <%= resultat_c.contact %>
                                             </td>
                                             
                                             <td
                                                 class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 font-medium">
-                                               <span class="text-indigo-600 hover:text-indigo-900"> <%= resultat.contact_parent %> 
+                                               <span class="text-indigo-600 hover:text-indigo-900"> <%= resultat_c.contact_parent %> 
                                             </td>
     
                                             
