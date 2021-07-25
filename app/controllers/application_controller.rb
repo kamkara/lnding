@@ -8,9 +8,18 @@ protected
   
       devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
       devise_parameter_sanitizer.permit :account_update, keys: added_attrs
+      devise_parameter_sanitizer.permit :sign_in, keys: [:login, :password]
     end
-    def after_sign_up_path_for(resource)
-      root_path
-    end
+    protected
+    
+
+  def after_sign_up_path_for(resource)
+    stored_location_for(resource) || "/motivation"
+  end
+
+  def after_sign_in_path_for(resource)
+  stored_location_for(resource) || "/motivation"
+end
+
     
 end

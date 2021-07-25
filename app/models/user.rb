@@ -2,12 +2,19 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, authentication_keys: [:login]
 
+  attr_writer :login
    ################## VALIDATES  ###############
   validates :username, :email, :contact, :role,  presence: true
-  validates :username, length: { minimum:5 }
+  validates :username,  length: { minimum:5 }
+  validates :contact,  length: { minimum:10 }
 
+
+
+  def email
+    self.email = "#{self.contact}@gmail.com"
+  end
   ################## SLUG ###############
   extend FriendlyId
     friendly_id :username, use: :slugged
@@ -17,6 +24,7 @@ class User < ApplicationRecord
   end
 
   ################  SIGN IN PHONE NUMBR OR EMAIL  ###########################
+
 
 def login
   @login || self.username || self.email
@@ -30,4 +38,5 @@ def self.find_for_database_authentication(warden_conditions)
     where(conditions.to_h).first
   end
 end
+
 end
