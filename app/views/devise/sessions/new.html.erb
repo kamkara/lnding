@@ -1,3 +1,59 @@
+
+<% @title="espace Connexion" %>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  
+<!-- component -->
+<div class="h-screen bg-white flex flex-col space-y-10 justify-center items-center">
+ 
+
+  <!-- Layout  -->
+  <div class="bg-white w-96 shadow-xl rounded p-5">
+  <!-- linkedin logo -->
+ <div class=" flex w-96 ">
+    <h1 class="w-32 font_bold text-black">Motv'Action</h1> 
+ </div>
+    <h1 class="text-3xl font-medium">S’identifier</h1>
+    <p class="text-sm">L'acces est reservé aux responsables de programme Motiv'action</p>
+    <form class="space-y-5 mt-5">
+
+   
+      <%= f.text_field :login, autofocus: true, autocomplete: "email",class:"w-full h-12 border border-gray-800 rounded px-3", placeholder:"phrase secrete..." %>
+      
+     <div class="w-full flex items-center  border border-gray-800 rounded px-3 my-2">
+        
+        <%= f.password_field :password, autocomplete: "current-password",class:" h-12", placeholder:"Mot de passe" %>
+        
+      </div>
+
+      <div class="">
+                  <a href="https://wa.me/2250759977903" title="Contactez admin pour plus de securité" class="font-medium text-blue-700 hover:bg-blue-300 rounded-full p-2">Mot de passe oublié ?</a>
+      </div>
+
+      <button class="text-center w-full bg-blue-700 rounded-full text-white py-3 font-medium">S'identifier</button>
+
+    </form>
+  </div>
+
+  <!-- Footer -->
+  <p>Nouveau sur motivaction ? <a href="https://wa.me/2250759977903" class="text-blue-700 font-medium">S’inscrire</a>  </p>
+</div>
+
+
+<!-- BUY ME A BEER AND HELP SUPPORT OPEN-SOURCE RESOURCES -->
+<div class="flex items-end justify-end fixed bottom-0 right-0 mb-4 mr-4 z-10">
+    <div>
+        <a title="Contactez administrateur" href="https://wa.me/2250759977903" target="_blank" class="block w-16 h-16 rounded-full transition-all shadow hover:shadow-lg transform hover:scale-110 hover:rotate-12">
+            <img class="object-cover object-center w-full h-full rounded-full" src="https://i.pinimg.com/originals/60/fd/e8/60fde811b6be57094e0abc69d9c2622a.jpg"/>
+        </a>
+    </div>
+</div>
+
+<% end %>
+
+
+<br><br><br>
+
 <h2>Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
