@@ -18,7 +18,7 @@
     <form class="space-y-5 mt-5">
 
    
-      <%= f.text_field :login, autofocus: true, autocomplete: "email",class:"w-full h-12 border border-gray-800 rounded px-3", placeholder:"phrase secrete..." %>
+      <%= f.text_field :login, autofocus: true,class:"w-full h-12 border border-gray-800 rounded px-3", placeholder:"phrase secrete..." %>
       
      <div class="w-full flex items-center  border border-gray-800 rounded px-3 my-2">
         
@@ -30,16 +30,15 @@
                   <a href="https://wa.me/2250759977903" title="Contactez admin pour plus de securité" class="font-medium text-blue-700 hover:bg-blue-300 rounded-full p-2">Mot de passe oublié ?</a>
       </div>
 
-      <button class="text-center w-full bg-blue-700 rounded-full text-white py-3 font-medium">S'identifier</button>
+      <%= f.submit "S'Identifier",class:"text-center w-full bg-blue-700 rounded-full text-white py-3 font-medium"  %>
 
     </form>
   </div>
 
   <!-- Footer -->
-  <p>Nouveau sur motivaction ? <a href="https://wa.me/2250759977903" class="text-blue-700 font-medium">S’inscrire</a>  </p>
+  <p>Nouveau sur Motiv'Action ? <a href="https://wa.me/2250759977903" class="text-blue-700 font-medium">S’inscrire</a>  </p>
 </div>
 
 
 
 <% end %>
-
