@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
   resources :resultats
+  #get "/delete-preinscription", to:"resultats#destroy", as: :preinscription_destroy
+  #get "/edit-preinscription", to:"resultats#edit", as: :preinscription_edit
+  #get "/preinscription", to:"resultats#new", as: :preinscription_new
+  #get "/debut-preinscription", to:"resultats#index", as: :preinscription_index
+  #get "/preinscription-termine", to:"resultats#show", as: :preinscription_show
   get '/motivation', to:'admin#index' , as: :admin
   get '/serie_d', to:'admin#serie_d' , as: :serie_d
   get '/serie_a1', to:'admin#serie_a1' , as: :serie_a1

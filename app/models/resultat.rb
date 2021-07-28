@@ -1,7 +1,6 @@
 class Resultat < ApplicationRecord
      ################## VALIDATES  ###############
-  validates :username, :contact_parent, :age, :genre, :ville, :ecole, :contact, :status,  presence: true
-  validates :username, :ville, :ecole, length: { minimum:5 }
+  validates :username, :serie, :contact, :status,  presence: true
   
   ################## SLUG ###############
   extend FriendlyId
