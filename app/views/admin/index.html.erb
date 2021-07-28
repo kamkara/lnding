@@ -193,6 +193,13 @@
                                                 class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 font-medium">
                                                <span class="text-indigo-600 hover:text-indigo-900"> <%= resultat.contact_parent %> 
                                             </td>
+                                            
+                                            <% if current_user.contact == "0759977903" %>
+                                            <td
+                                                class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 font-medium">
+                                               <span class="text-indigo-600 hover:text-indigo-900"> <%= link_to 'Supprimé', resultat, method: :delete, data: { confirm: 'Le resultat séra supprimé?' } %>
+                                            </td>
+                                            <% end %>
     
                                             
                                         </tr>
